@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900">
+<div class="mx-auto mt-24 w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+    <h1 class="mb-1 text-2xl font-semibold">Dashboard Login</h1>
+    <p class="mb-4 text-sm text-slate-500">Enter your password to continue.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="mb-3 rounded-md px-3 py-2 text-sm {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-emerald-100 text-emerald-700{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('dashboard_login_submit') }}" class="space-y-3">
+        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+        <input id="password" name="password" type="password" required autofocus
+               class="w-full rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
+        <button type="submit"
+                class="w-full rounded-md bg-indigo-600 px-3 py-2 font-medium text-white hover:bg-indigo-700">
+            Login
+        </button>
+    </form>
+</div>
+</body>
+</html>
