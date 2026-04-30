@@ -58,6 +58,23 @@ Will be sent to:
 
    - [http://127.0.0.1:5000/dashboard/login](http://127.0.0.1:5000/dashboard/login)
 
+## Deploy on Render
+
+Use a **Web Service** with:
+
+- Build Command:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+- Start Command:
+
+  ```bash
+  uvicorn app:app --host 0.0.0.0 --port $PORT
+  ```
+
+
 ## Dashboard actions
 
 - **Create** a new service mapping

@@ -113,6 +113,8 @@ def dashboard_login_required(view_func):
 
 @app.get("/")
 def home():
+    if request.method == "HEAD":
+        return Response(status=200)
     return redirect(url_for("dashboard"))
 
 
