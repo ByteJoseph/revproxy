@@ -71,7 +71,7 @@ Use a **Web Service** with:
 - Start Command:
 
   ```bash
-  uvicorn app:app --host 0.0.0.0 --port $PORT
+  gunicorn app:app
   ```
 
 
